@@ -3,10 +3,10 @@
 if (getenv('JAWSDB_URL') !== false) {
 $dbparts = parse_url(getenv('JAWSDB_URL'));
 
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/');
+$hostname = $dbparts['en1ehf30yom7txe7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'];
+$username = $dbparts['l6p3q4ibozdrkm9t'];
+$password = $dbparts['e0ht6bbarxoywqwf'];
+$database = ltrim($dbparts['hexzjax1wmick597'],'/');
 } else {
 
 $host = "localhost";
