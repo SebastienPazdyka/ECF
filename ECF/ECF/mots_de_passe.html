@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="ecf.css">
+
+    <!-- FEUILLE DE STYLE -->
+
+<style>
+
+body {
+	height: 400px;
+	padding-left:15px;
+	padding-right:15px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:justify;
+}
+h1, h2, h3, h4, h5, h6 {
+	
+    
+	text-align: center;
+}
+p {
+	font-size:0.8em;
+}
+
+legend {
+	font-size: 0.8em;
+}
+th label {
+	font-size: 0.8em;
+}
+th input {
+	font-size: 0.8em;
+}
+#avertnojs {
+	font-size:1.2em;
+	color:hsl(0,100%,47%);
+	text-align:center;
+}
+#version {
+	width:200px;
+	margin-left:600px;
+	clear:both;
+}
+#information {
+	color: red;
+}
+#mdpcopie {
+	color: red;
+}
+</style>
+<title>Mots de passe</title>
+</head>
+<body>   
+
+	<!-- LOGO ET MENU DE NAVIGATION -->
+	
+	<div class="text-center">
+		<img src="LOGO Médiathèque.jpg" class="img-fluid" alt="logo">
+	
+		<div class="navi">
+		<ul class="nav justify-content-center navbar">
+			<li class="nav-item">
+			  <a class="nav-link text-white" aria-current="page" href="accueil.html">Accueil</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-white" href="inscription.php">Inscription</a>
+			  </li>
+			<li class="nav-item">
+				<a class="nav-link text-white" href="index.php">Se connecter</a>
+			  </li>
+			<li class="nav-item">
+			  <a class="nav-link text-white" href="catalogue.php">Catalogue</a>
+			</li>
+			</ul>
+		</div>
+		
+<p id="avertnojs">
+<noscript>
+Javascript n'étant pas activé sur votre navigateur, vous ne pouvez pas utiliser 
+cette page.
+</noscript>
+<h3 class="text-white">GÉNÉRATEUR DE MOTS DE PASSE</h3>
+
+<!--FORMULAIRE GENERATEUR MOT DE PASSE-->
+
+<form>
+	<fieldset>
+
+		<table>
+			<tr>
+				<td>
+				</td>
+				<td>
+					<input type="hidden" id="specialcharlist" size="48" maxlength="30" value="[   ]   (   )   {   }   #   :   ;   .   ,   !   ?   /   \   |   +   *   =   ^   &   -   _   ~   @   $   %" />
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<br>
+	<fieldset>
+		<input type="hidden" id="nblowercase" size="1" maxlength="2" value="30" onClick="this.value=''" />
+		<input type="hidden" id="nbcapital" size="1" maxlength="2" value="7" onClick="this.value=''" />
+		<input type="hidden" id="nbdigit" size="1" maxlength="2" value="5" onClick="this.value=''"/>
+		<input type="hidden" id="nbspecialchar" size="1" maxlength="2" value="9" onClick="this.value=''" />
+
+	</fieldset>
+	<br>
+	<div>
+		<input type="button" id="generer" value="Générer"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="reset" id="reseter" value="Reset" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	</div>
+	<br>
+	<fieldset>
+		<input type="text" id="password" size="78" maxlength="78" />
+		<input type="button" id="copypassword" value="Copier dans le presse-papier" />
+		<label id="mdpcopie"></label>
+	</fieldset>
+</form>
+<br/>
+<p class="text-center"><a href="inscription.php" class="btn btn-primary text-white">Retour</a></p>
+
+ <!--PIED DE PAGE-->
+
+<footer>
+	<p class="copyright">&copy; Copyrights ALL RIGHTS RESERVED PAZDYKA SEBASTIEN.</p>
+</footer>
+
+<!--/////////////////////////////////////CODE JAVASCRIPT///////////////////////////////////////////////////-->
+
+<script>
+
+// VARIABLES GLOBALES
+var LOWERCASE="abcdefghijklmnpqrstuvwxyzabcdefghijklmnpqrstuvwxyzwxyz"; 
+var CAPITAL="ABCDEFGHIJKLMNPQRSTUVWXYZABCDEFGHIJKLMNPQRSTUVWXYZWXYZ"; 
+var DIGIT="012345678901234567890123456789012345678901234567890123"; 
+// FONCTION VÉRIFICATION DES ENTRÉES CLIENT
+function verifNombre(valeur) {
+	
+	if(valeur=="") {
+		valeur="0";
+	}
+  
+  if (/^([0-9]{1,2})$/.test(valeur) && parseInt(valeur, 10) <= 54) {
+    return parseInt(valeur, 10);
+  } else {
+    return "erreur";
+  }
+}
+
+// MÉLANGER LES CARACTÈRES D'UN STRING (10 passes)
+function mix(x) {
+	for(var i=0; i<10; i++) {
+		x=x.split('').sort(function(){return 0.5-Math.random();}).join('');
+	}
+	return x;
+}
+// OBTENTION DES DONNÉES CLIENT
+function getData() {
+  
+  var nbLowerCase, nbCapital, nbDigit, specialchar1, specialchar2, specialcharlistbrut, specialcharlist, nbspecialcharlist, nbSpecialChar;
+  nbLowerCase = $("#nblowercase").val(); 
+  nbLowerCase = verifNombre(nbLowerCase); 
+  nbCapital = $("#nbcapital").val(); 
+  nbCapital = verifNombre(nbCapital); 
+  nbDigit = $("#nbdigit").val(); 
+  nbDigit = verifNombre(nbDigit);
+  specialchar1=$("#specialcharlist").val(); 
+  specialchar2=$("#specialcharlist").val(); 
+  specialcharlistbrut=specialchar1.concat(specialchar2); 
+  specialcharlist=specialcharlistbrut.replace(/ /g, "");
+  nbspecialcharlist=specialcharlist.length; 
+  nbSpecialChar = $("#nbspecialchar").val(); 
+  nbSpecialChar = verifNombre(nbSpecialChar); 
+  if(nbLowerCase=="erreur" || nbCapital=="erreur" || nbDigit=="erreur" || nbSpecialChar=="erreur") {
+  	$("#information").val("Vérifiez les entrées");
+  	return;
+  } else if (nbLowerCase+nbCapital+nbDigit+nbSpecialChar>78) {
+  	$("#information").val("Le nombre de caractères dépasse 78");
+  	return;
+  } else if(nbSpecialChar > nbspecialcharlist) {
+  	$("#information").val("Pas assez de caractères spéciaux disponibles");
+  	return;
+  } else {
+  	return [specialcharlist, nbLowerCase, nbCapital, nbDigit, nbSpecialChar];
+  }
+}
+// AFFICHAGE DES RÉSULTATS
+function affresult(resultat) {
+  $("#password").val(resultat);
+}
+// ORDONNANCEMENT DES CALCULS
+function calcul() {
+	
+	$("#password").val("");
+	$("#information").val("");
+	$("#mdpcopie").html("");
+	var data, lowmix, lowselect, capmix, capselect, res2, res3, digitmix, digitselect, specialcharlist, specialmix, specialselect, resultat;
+	data = getData(); 
+	lowmix = mix(LOWERCASE); 
+	lowselect = lowmix.slice(0, data[1]); 
+	capmix = mix(CAPITAL); 
+	capselect = capmix.slice(0, data[2]); 
+	res2 = lowselect.concat(capselect); 
+	digitmix=mix(DIGIT); 
+	digitselect=digitmix.slice(0, data[3]); 
+	res3=res2.concat(digitselect); 
+	specialcharlist=data[0]; 
+	specialmix=mix(specialcharlist); 
+	specialselect=specialmix.slice(0, data[4]); 
+	resultat=res3.concat(specialselect); 
+	resultat=mix(resultat); 
+	affresult(resultat); 
+}
+// DÉCLENCHEMENT DES CALCULS
+$("#generer").bind("click", function(event) {
+	calcul();
+});
+// COPIE DU RÉSULTAT DANS LE PRESSE-PAPIER
+$("#copypassword").bind("click", function(event) {
+		var password  = document.querySelector("#password");
+		password.select();
+		document.execCommand('copy');
+		$("#mdpcopie").html("<p>Mot de passe copié</p>");
+		return false;
+	});
+// BOUTON RESET
+$("#reseter").bind("click", function(event) {
+		$("#mdpcopie").html("");
+	});
+</script>
+</body>
+</html>
