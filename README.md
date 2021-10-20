@@ -52,8 +52,6 @@ Une fois télécharger et lié à votre domaine, rendez-vous dans la section "Se
 
 CREATION ADMINISTRATEURS:
 
-   (LOCAL)
-
 -Connecter vous à la base de données via un terminal de commande, et en vous connectant à Mysql : USE mediatheque; - INSERT INTO admin VALUES (id, pseudo, email, password, ip, token), et inscrivez y les informations du nouvel administrateur.
 
 -Essayer la connection localement directement via "http://localhost/ECF/jobconnect.php" Effectuer une mise à jour de votre base de données de votre domaine Heroku, et essayer via "https://still-sea-82800.herokuapp.com/jobconnect.php".
