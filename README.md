@@ -9,7 +9,9 @@ DEPLOIEMENT EN LOCAL :
 
 -Tout d'abord il vous faudra installer le serveur local WAMPP sur "https://www.wampserver.com/", veiller à bien installer PHP lors de la configuration de WAMP et le serveur MYSQL.
 
--Après l'installation, à l'aide de votre explorateur de fichiers accéder au dossier "www", la route d'accés devrait être similaire à celle-ci "C:\wamp64\www". À l'intérieur créer un nouveau dossier (par exemple ECF) et glisser y les fichiers présent sur mon git "https://github.com/SebastienPazdyka/ECF".
+-Rendez-vous sur "https://github.com/SebastienPazdyka/ECF" pour y récupérer les fichiers nécéssaires. Télécharger le dossier zip et grâce a à 7zipfile par exemple, extrayer les fichiers.
+
+-Après l'extraction, à l'aide de votre explorateur de fichiers accéder au dossier "www", la route d'accés devrait être similaire à celle-ci "C:\wamp64\www". À l'intérieur déposer le dossier "ECF-main" récupérer via mon git "https://github.com/SebastienPazdyka/ECF" que vous venez d'extraire.
 
 -Une fois cela effectuer, 2 méthodes vous sont possible afin de déployer la Base de données du site:
 
