@@ -1,4 +1,7 @@
+
 Bonjour, afin de déployer le site de la médiathèque pour l'ECF de STUDI d'octobre 2021 en local ou en ligne veuillez suivre les instructions suivantes :
+
+----------------------------------------------------
 
 DEPLOIEMENT EN LOCAL :
 
@@ -46,6 +49,16 @@ Une fois télécharger et lié à votre domaine, rendez-vous dans la section "Se
 -À l'aide de votre terminal de commande,connecter vous de nouveau à Mysql et à Heroku, et effectuer la commande suivante "mysql -h NEWHOST -u NEWUSER -pNEWPASS NEWDATABASE <  C:\wamp64\www\ECF\mediatheque.sql" (remplacer les termes par ceux de votre bdd visible sur le tableau de bord Jaws). Cela vous permettra d'insérer les données du fichier mediatheque.sql dans votre bdd Jaws.
 
 -Maintenant vous pouvez accéder à votre domaine et visualiser votre site !
+
+CREATION ADMINISTRATEURS:
+
+   (LOCAL)
+
+-Connecter vous à la base de données via un terminal de commande, et en vous connectant à Mysql : USE mediatheque; - INSERT INTO admin VALUES (id, pseudo, email, password, ip, token), et inscrivez y les informations du nouvel administrateur.
+
+-Essayer la connection localement directement via "http://localhost/ECF/jobconnect.php" Effectuer une mise à jour de votre base de données de votre domaine Heroku, et essayer via "https://still-sea-82800.herokuapp.com/jobconnect.php".
+
+--------------------------------------------------------------------
 
 Voilà pour ce tuto, si vous souhaitez voir le résultat de tout ça, rendez-vous à l'adresse suivante "https://still-sea-82800.herokuapp.com/accueil.html".
 
