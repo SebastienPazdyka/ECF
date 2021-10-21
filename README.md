@@ -19,7 +19,7 @@ DEPLOIEMENT EN LOCAL :
  
  Deuxième méthode: À l'aide d'un terminal de commande, écrivez la commande suivante "mysql -u root -p mediatheque < C:\wamp64\www\ECF\mediatheque.sql" il vous faudra ensuite taper votre mot de passe utilisateur et vérifier que tout à bien fonctionner en vous connectant à MYSQL "mysql -u root -p" et en utilisant les scripts SQL suivants "SHOW DATABASES;" pour accéder à vos base de données. Vous devriez voir "mediatheque", si oui, faite "USE mediatheque;" et "SHOW TABLES;" cela vous permettra de voir si vos tables sont elles aussi présentes.
  
-Maintenant accéder à votre navigateur web (Chrome pour ma part), et tapez l'adresse suivante dans la barre d'adresse "http://localhost/ECF/accueil.html", si vous avez respecter les instructions pécédentes à la lettre vous devriez être sur la page d'accueil du site de la médiathèque !
+Maintenant accéder à votre navigateur web (Chrome pour ma part), et tapez l'adresse suivante dans la barre d'adresse "http://localhost/ECF-main/ECF-main/accueil.html", si vous avez respecter les instructions pécédentes à la lettre vous devriez être sur la page d'accueil du site de la médiathèque !
 
 DEPLOIEMENT EN LIGNE : 
 
