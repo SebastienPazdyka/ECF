@@ -7,6 +7,15 @@ DEPLOIEMENT EN LOCAL :
 
 (Il vous faudra un serveur local tel que XAMPP,WAMP ou encore LAMP par exemple selon votre système d'exploitation afin de pouvoir réaliser ce tuto. Travaillant avec Windows 10 ce tutoriel sera baser sur WAMP.)
 
+-------"""ATTENTION""": La base de données est configurer pour fonctionner avec les identifiants Mysql suivants : 
+
+host = localhost;
+user = root;
+password = Y28IE09ihjdved;
+dbname = "mediatheque";
+
+-------
+
 -Tout d'abord il vous faudra installer le serveur local WAMPP sur "https://www.wampserver.com/", veiller à bien installer PHP lors de la configuration de WAMP et le serveur MYSQL.
 
 -Rendez-vous sur "https://github.com/SebastienPazdyka/ECF" pour y récupérer les fichiers nécéssaires. Télécharger le dossier zip et grâce a à 7zipfile par exemple, extrayer les fichiers.
